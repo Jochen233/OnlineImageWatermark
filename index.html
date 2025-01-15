@@ -20,38 +20,51 @@
     <!-- 百度站点访问统计 -->
     <script src="./static/js/baidu-hm.js"></script>
      <style>
-        /* Main container for the two sections */
+    /* 主容器，默认左右布局 */
+    .container-full {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px;
+        height: 100vh; /* 设置为视口高度 */
+    }
+
+    /* 左侧预览区 */
+    .container-left {
+        width: 48%;
+        margin-right: 2%;
+        overflow: auto; /* 确保内容不会被隐藏 */
+    }
+
+    /* 右侧设置区 */
+    .container-right {
+        width: 48%;
+        overflow: auto;
+    }
+
+    /* 当屏幕宽度小于900px时，切换为上下布局 */
+    @media screen and (max-width: 900px) {
         .container-full {
-            display: flex;
-            flex-direction: row; /* Default layout is left-right */
-            justify-content: space-between;
-            padding: 20px;
+            flex-direction: column; /* 改为上下布局 */
+            height: auto; /* 高度自适应内容 */
         }
 
-        /* Preview area */
-        .container-left {
-            width: 48%; /* Default width */
-            margin-right: 2%; /* Space between sections */
-        }
-
-        /* Settings area */
+        .container-left,
         .container-right {
-            width: 48%; /* Default width */
+            width: 100%; /* 宽度设置为100% */
+            margin: 0;
+            padding: 10px 0; /* 增加内边距，避免内容紧贴边缘 */
         }
 
-        /* Media query for screen width less than 900px */
-        @media screen and (max-width: 900px) {
-            .container-full {
-                flex-direction: column; /* Change layout to top-bottom */
-            }
-
-            .container-left,
-            .container-right {
-                width: 100%; /* Full width for both sections */
-                margin: 0; /* Remove the margin between sections */
-            }
+        .container-left {
+            min-height: 300px; /* 设置最小高度，保证预览区可见 */
         }
-    </style>
+
+        .container-right {
+            min-height: 400px; /* 设置最小高度，保证设置区可见 */
+        }
+    }
+</style>
 </head>
 <body>
 <div class="container-full">
