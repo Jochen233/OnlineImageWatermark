@@ -17,23 +17,31 @@
     <script src="//unpkg.com/exif-js@2.3.0/exif.js"></script>
     <!-- canvas操作插件 -->
     <script src="//unpkg.com/konva@9/konva.min.js"></script>
-    <!-- 百度站点访问统计 -->
-    <script src="./static/js/baidu-hm.js"></script>
+    <!-- 站点访问统计 -->
+    <script defer src="https://analytic.travel.moe/script.js" data-website-id="13ab9242-4a6c-4955-b36d-9899c0cbdcc8"></script>
      <style>
+    /* 全局设置，确保内外边距不会导致溢出 */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
     /* 主容器，默认左右布局 */
     .container-full {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         padding: 20px;
-        height: 100vh; /* 设置为视口高度 */
+        height: 100vh;
+        overflow-x: hidden; /* 隐藏水平滚动条 */
     }
 
     /* 左侧预览区 */
     .container-left {
         width: 48%;
         margin-right: 2%;
-        overflow: auto; /* 确保内容不会被隐藏 */
+        overflow: auto;
     }
 
     /* 右侧设置区 */
@@ -45,24 +53,30 @@
     /* 当屏幕宽度小于900px时，切换为上下布局 */
     @media screen and (max-width: 900px) {
         .container-full {
-            flex-direction: column; /* 改为上下布局 */
-            height: auto; /* 高度自适应内容 */
+            flex-direction: column;
+            height: auto;
+            padding: 10px; /* 减少内边距，避免内容太贴边 */
         }
 
         .container-left,
         .container-right {
-            width: 100%; /* 宽度设置为100% */
+            width: 100%;
             margin: 0;
-            padding: 10px 0; /* 增加内边距，避免内容紧贴边缘 */
+            padding: 10px 0;
         }
 
         .container-left {
-            min-height: 300px; /* 设置最小高度，保证预览区可见 */
+            min-height: 300px;
         }
 
         .container-right {
-            min-height: 400px; /* 设置最小高度，保证设置区可见 */
+            min-height: 400px;
         }
+    }
+
+    /* 防止 body 出现水平滚动条 */
+    body {
+        overflow-x: hidden;
     }
 </style>
 </head>
@@ -180,8 +194,10 @@
         <!-- 底部版权信息和备案信息 -->
         <div class="footer-block">
             <div style="display: flex;justify-content: center;height: 24px">
-                <iframe src="https://ghbtns.com/github-btn.html?user=printlin&repo=OnlineImageWatermark&type=watch&count=false" allowtransparency="true" frameborder="0" scrolling="0" width="50px" height="20px"></iframe>
-                <a style="padding-left: 10px;padding-top: 2px;" href="https://beian.miit.gov.cn/" target="_blank">渝ICP备19008163号-2</a>
+                <a style="padding-left: 10px;padding-top: 2px;" href="https://icp.gov.moe/?keyword=2025666" target="_blank">萌ICP备2025666号</a>
+                <a href="https://travel.moe/go.html" target="_blank">
+                    <img src="https://travel.moe/images/logo/gif-kt/startup-blue.gif" style="width:auto;height:32px" title="异次元之旅-跃迁-我们一起去萌站成员的星球旅行吧！">
+                </a>
             </div>
             <div>Copyright © 2024 lookcv.com MIT Licensed</div>
         </div>
