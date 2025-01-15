@@ -81,40 +81,44 @@
 </style>
 </head>
 <body>
-    <!-- 移动设备警告弹窗 -->
-        <div id="mobileWarning" class="mobile-warning-popup">
-            <div class="popup-content">
-                <h2>警告！</h2>
-                <p>由于本站使用JS渲染，手机设备可能无法正常使用，可能会出现卡死，无法显示虚化背景等问题。</p>
-                <p>建议使用电脑体验完整功能。</p>
-                <button class="close-btn" onclick="closePopup()">关闭</button>
-            </div>
-        </div>
+   <!-- 移动设备警告弹窗 -->
+<div id="mobileWarning" class="mobile-warning-popup">
+    <div class="popup-content">
+        <h2>警告！</h2>
+        <p>由于本站使用JS渲染，手机设备可能无法正常使用，可能会出现卡死，无法显示虚化背景等问题。</p>
+        <p>建议使用电脑体验完整功能。</p>
+        <button class="close-btn" onclick="closePopup()">关闭</button>
     </div>
+</div>
 
-    <script>
-        // 检测设备是否为移动设备
-        function isMobileDevice() {
-            return /Android|iPhone|iPad|iPod|Windows Phone|HarmonyOS/i.test(navigator.userAgent);
-        }
+<script>
+    // 检测设备是否为移动设备
+    function isMobileDevice() {
+        const userAgent = navigator.userAgent;
+        console.log('User Agent:', userAgent); // 调试输出，查看实际的 User Agent
+        return /Android|iPhone|iPad|iPod|Windows Phone|HarmonyOS/i.test(userAgent);
+    }
 
-        // 显示弹窗
-        function showPopup() {
-            const popup = document.getElementById('mobileWarning');
-            popup.style.display = 'flex'; // 显示弹窗
-        }
+    // 显示弹窗
+    function showPopup() {
+        const popup = document.getElementById('mobileWarning');
+        popup.style.display = 'flex'; // 显示弹窗
+    }
 
-        // 关闭弹窗
-        function closePopup() {
-            const popup = document.getElementById('mobileWarning');
-            popup.style.display = 'none'; // 隐藏弹窗
-        }
+    // 关闭弹窗
+    function closePopup() {
+        const popup = document.getElementById('mobileWarning');
+        popup.style.display = 'none'; // 隐藏弹窗
+    }
 
-        // 自动检测设备
+    // 等待页面加载完成后自动检测设备
+    window.onload = function() {
         if (isMobileDevice()) {
             showPopup(); // 移动设备显示弹窗
         }
-    </script>
+    };
+</script>
+
 <div class="container-full">
     <!-- 左边预览区 -->
     <div id="konvaContainerBlock" class="container-left">
