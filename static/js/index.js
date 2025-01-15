@@ -36,13 +36,13 @@ const imgConfig = {
     logoImg: null,
     logoImgUrl: null,
     logoImgLoad: null,
-    modelText: "Z30",
+    modelText: "A6400",
     exifText: null,
     blur: 150,
     radius: 40,
     shadow: 100,
-    fontSize: 50,
-    fontColor: '#000000',
+    fontSize: 150,
+    fontColor: '#ffffff',
     font: 'DingTalkSans'
 };
 let logoSelectorHtml = "";
