@@ -19,6 +19,39 @@
     <script src="//unpkg.com/konva@9/konva.min.js"></script>
     <!-- 百度站点访问统计 -->
     <script src="./static/js/baidu-hm.js"></script>
+     <style>
+        /* Main container for the two sections */
+        .container-full {
+            display: flex;
+            flex-direction: row; /* Default layout is left-right */
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        /* Preview area */
+        .container-left {
+            width: 48%; /* Default width */
+            margin-right: 2%; /* Space between sections */
+        }
+
+        /* Settings area */
+        .container-right {
+            width: 48%; /* Default width */
+        }
+
+        /* Media query for screen width less than 900px */
+        @media screen and (max-width: 900px) {
+            .container-full {
+                flex-direction: column; /* Change layout to top-bottom */
+            }
+
+            .container-left,
+            .container-right {
+                width: 100%; /* Full width for both sections */
+                margin: 0; /* Remove the margin between sections */
+            }
+        }
+    </style>
 </head>
 <body>
 <div class="container-full">
